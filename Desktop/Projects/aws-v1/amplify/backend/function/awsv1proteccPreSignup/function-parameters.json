@@ -1,0 +1,20 @@
+{
+  "trigger": true,
+  "modules": [
+    "email-filter-blacklist",
+    "email-filter-whitelist"
+  ],
+  "parentResource": "awsv1protecc",
+  "functionName": "awsv1proteccPreSignup",
+  "resourceName": "awsv1proteccPreSignup",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/triggers/PreSignup",
+  "triggerTemplate": "PreSignup.json.ejs",
+  "triggerEventPath": "PreSignup.event.json",
+  "roleName": "awsv1proteccPreSignup",
+  "skipEdit": true,
+  "DOMAINWHITELIST": "gmail.com, hotmail.com, yahoo.com, mail.com, outlook.com",
+  "DOMAINBLACKLIST": "",
+  "enableCors": false
+}

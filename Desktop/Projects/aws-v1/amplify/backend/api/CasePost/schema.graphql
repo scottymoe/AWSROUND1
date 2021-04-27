@@ -1,5 +1,11 @@
-type Todo @model {
+type Case @model
+  @key(name: "postsByUsername", fields: ["username"], queryField:  "postsByUsername")
+  @auth(rules: [
+    { allow: owner, ownerField: "username" },
+    { allow: public, operations: [read]}
+  ]) {
   id: ID!
   name: String!
-  description: String
+  description: String!
+  username: String
 }

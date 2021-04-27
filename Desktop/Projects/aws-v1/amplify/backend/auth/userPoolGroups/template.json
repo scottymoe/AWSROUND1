@@ -1,0 +1,55 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Parameters": {
+        "authawsv1proteccUserPoolId": {
+            "Type": "String",
+            "Default": "authawsv1proteccUserPoolId"
+        },
+        
+        "authawsv1proteccAppClientID": {
+            "Type": "String",
+            "Default": "authawsv1proteccAppClientID"
+        },
+        "authawsv1proteccAppClientIDWeb": {
+            "Type": "String",
+            "Default": "authawsv1proteccAppClientIDWeb"
+        },
+        "AuthRoleArn": {
+            "Type": "String"
+        },
+        "UnauthRoleArn": {
+            "Type": "String"
+        },
+        "env": {
+            "Type": "String"
+        }
+    },
+    "Conditions": {
+        "ShouldNotCreateEnvResources": {
+            "Fn::Equals": [
+                {
+                    "Ref": "env"
+                },
+                "NONE"
+            ]
+        }
+    },
+    "Resources": {
+    
+        "DentistsGroup": {
+          "Type" : "AWS::Cognito::UserPoolGroup",
+          "Properties" : {
+              "GroupName" : "Dentists",
+              "Precedence" : 1,
+              
+              "UserPoolId" : {
+                "Ref": "authawsv1proteccUserPoolId"
+              }
+            }
+        },
+        
+    
+    
+    },
+    
+}
